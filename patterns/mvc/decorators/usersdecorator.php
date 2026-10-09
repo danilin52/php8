@@ -34,6 +34,15 @@ class UsersDecorator extends DecoratorFactory
             });
     }
 
+    public function md() : string
+    {
+        return $this->collection_render(
+            function($item){
+                $decorated_item = new UserDecorator($item);
+                return $decorated_item->md();
+            }, "\n");
+    }
+
     public function items() : string
     {
         return $this->collection_render(

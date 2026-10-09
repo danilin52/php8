@@ -27,6 +27,15 @@ class UserDecorator extends DecoratorFactory
 
     }
 
+    public function md() : string
+    {
+        return sprintf(
+            '- **%s** (%s)',
+            $this->title(),
+            $this->user->email
+        );
+    }
+
     public function items() : string
     {
         return '<item>'.
